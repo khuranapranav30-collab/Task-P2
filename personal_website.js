@@ -7,7 +7,6 @@ app.use(express.urlencoded({ extended: true }))
 
 const dotenv = require("dotenv")
 dotenv.config({ path: "credentials.env" })
-console.log(process.env.MAILGUN_API_KEY)
 
 const formData = require('form-data');
 const Mailgun = require('mailgun.js');
@@ -29,7 +28,7 @@ app.post("/", (req, res) => {
         text: "Welcome to DEV@Deakin! Thank you for subscribing.",
         html: "<h1>Welcome to DEV@Deakin! Thank you for subscribing.</h1>"
     })
-        .then(msg => {
+       .then(msg => {
             console.log(msg)
             res.status(200).send("Welcome email sent successfully")
         })
